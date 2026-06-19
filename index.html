@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 资料索引与知识整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e293b;
+      padding: 3rem 1rem 5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      padding: 3rem 2.5rem;
+    }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #e9edf2;
+      padding-bottom: 1.25rem;
+    }
+
+    .page-header h1 {
+      font-weight: 550;
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .page-header .subhead {
+      color: #64748b;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* 目录感布局 —— 使用卡片网格与分区 */
+    .section-title {
+      font-weight: 550;
+      font-size: 1.35rem;
+      color: #0f172a;
+      margin: 2.5rem 0 1rem 0;
+      padding-left: 0.75rem;
+      border-left: 4px solid #2563eb;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .card-item {
+      background: #f8faff;
+      padding: 1.5rem 1.25rem;
+      border-radius: 18px;
+      border: 1px solid #e6edf8;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card-item h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: #1e293b;
+      letter-spacing: -0.01em;
+    }
+
+    .card-item p {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .card-item .tag {
+      display: inline-block;
+      background: #e9eff8;
+      color: #1e4f8a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .info-area {
+      background: #f1f6fd;
+      border-radius: 20px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      border-left: 6px solid #2563eb;
+    }
+
+    .info-area p {
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+
+    .info-area strong {
+      color: #0f172a;
+      font-weight: 550;
+    }
+
+    .tip-box {
+      background: #fffbe6;
+      border-radius: 16px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      border: 1px solid #f0e6c0;
+    }
+
+    .tip-box .tip-label {
+      font-weight: 550;
+      color: #92400e;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+    }
+
+    .tip-box p {
+      font-size: 0.95rem;
+      color: #3b2f0a;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      margin: 1.8rem 0 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .related-links span {
+      font-size: 0.9rem;
+      color: #334155;
+    }
+
+    .related-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 450;
+      border-bottom: 1px dashed transparent;
+      transition: border-color 0.15s;
+    }
+
+    .related-links a:hover {
+      border-bottom: 1px dashed #2563eb;
+    }
+
+    .inline-link {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+      transition: color 0.1s;
+    }
+
+    .inline-link:hover {
+      color: #0f4a9e;
+      border-bottom-color: #2563eb;
+    }
+
+    .faq-mini {
+      margin: 2.2rem 0 1.5rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eef2f6;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 0.5rem;
+      color: #2563eb;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini details p {
+      padding: 0.75rem 1.2rem 1rem;
+      font-size: 0.9rem;
+      color: #334155;
+      background: #fafcff;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.3rem;
+    }
+
+    .small-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.25rem;
+      }
+      .page-header h1 {
+        font-size: 1.7rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .info-area {
+        padding: 1.25rem;
+      }
+      .tip-box {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <h1>百家乐 · 资料整理索引</h1>
+    <div class="subhead">基于公开信息与规则手册的结构化档案</div>
+  </div>
+
+  <p style="margin-bottom: 1.2rem; font-size: 0.95rem;">
+    这个页面是一份关于 <a href="https://cns-baccarat.com" class="inline-link">百家乐</a> 的知识库入口。
+    我们尝试从信息类型与使用场景出发，把分散的规则、概率说明、常见问法整理成可查阅的目录卡片。
+    所有内容均来自可信资料与通用版本，不包含推介或策略建议。
+  </p>
+
+  <!-- 卡片目录区 -->
+  <div class="section-title">📂 信息分类</div>
+  <div class="card-grid">
+    <div class="card-item">
+      <h3>规则与流程</h3>
+      <p>基本发牌规则、补牌条件、庄闲和赔率标准。适合第一次接触的读者。</p>
+      <span class="tag">6–8 副牌</span>
+    </div>
+    <div class="card-item">
+      <h3>概率与回报率</h3>
+      <p>庄、闲、和的理论概率，赌场优势（House Edge）参考值。均基于标准规则。</p>
+      <span class="tag">RTP 约 98.9%</span>
+    </div>
+    <div class="card-item">
+      <h3>路纸与记录</h3>
+      <p>珠盘路、大路、小路、曱甴路等记录方式说明。仅作视觉索引，不暗示趋势。</p>
+      <span class="tag">常见格式</span>
+    </div>
+    <div class="card-item">
+      <h3>术语表</h3>
+      <p>“Natural”、“例牌”、“对子”、“幸运六”等常见词汇定义，方便查阅。</p>
+      <span class="tag">中英对照</span>
+    </div>
+  </div>
+
+  <!-- 说明区：资料整理背景 -->
+  <div class="section-title">📋 说明</div>
+  <div class="info-area">
+    <p><strong>本索引的定位</strong> · 我们不提供策略、教学或预测。这里只整理通用规则与公认数据，帮助使用者快速定位想要了解的部分。所有赔率与概率均以欧洲/北美标准赌场规则为基准（例如庄家抽佣5%）。不同地区的细微差异会在单独条目中标注。</p>
+    <p style="margin-top: 0.6rem;">如果你更倾向于直接阅读原文或官方规则，可前往 <a href="https://cns-baccarat.com" class="inline-link">百家乐</a> 页面查看更详细的版本。</p>
+  </div>
+
+  <!-- 提示区：常见使用注意 -->
+  <div class="tip-box">
+    <div class="tip-label">💡 使用提示</div>
+    <p>• 卡片目录中的每一项都可以作为独立的查询入口，点击后可展开详细内容（本站为静态页面，目前提供概览）。<br>
+    • 路纸记录仅作为历史结果的可视化方式，不蕴含预测能力，请理性参考。<br>
+    • 如果你在找特定规则（例如“是否允许平局下注”或“Super 6”赔付），请直接用关键词在页面内搜索。</p>
+  </div>
+
+  <!-- FAQ 摘要（折叠） -->
+  <div class="section-title">❓ 常见问题摘要</div>
+  <div class="faq-mini">
+    <details>
+      <summary>百家乐通常使用几副牌？</summary>
+      <p>绝大多数赌场使用 6 副或 8 副牌，洗牌后放入牌靴。部分线上版本可能使用 1 副，但规则会有微调。</p>
+    </details>
+    <details>
+      <summary>“庄家抽水”是什么意思？</summary>
+      <p>押注庄家且获胜后，赌场会抽取 5% 的佣金（俗称抽水）。这是赌场在庄注上设置的固定优势。部分免佣版本则以不同赔率代替。</p>
+    </details>
+    <details>
+      <summary>“和局”是否值得下注？</summary>
+      <p>和局赔率通常为 8:1 或 9:1，但理论赌场优势超过 14%，长期下注期望值为负。资料仅提供概率参考，不做建议。</p>
+    </details>
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="section-title">🔗 相关信息</div>
+  <div class="related-links">
+    <span>🧾 规则版本 · 欧洲标准</span>
+    <span>📊 概率表 · 庄 45.86% / 闲 44.62% / 和 9.52%</span>
+    <span><a href="https://cns-baccarat.com">百家乐</a> · 资料源</span>
+    <span>📁 路纸说明 · 大路/小路/珠盘</span>
+  </div>
+
+  <div class="small-note">
+    —— 整理于公开资料 · 仅作索引用途 ——
+  </div>
+</div>
+</body>
+</html>

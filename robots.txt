@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://leencemwiln.github.io/cns-baccarat-com-2/sitemap.xml
